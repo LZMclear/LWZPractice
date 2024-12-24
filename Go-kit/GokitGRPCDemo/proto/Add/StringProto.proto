@@ -1,0 +1,14 @@
+syntax = "proto3";
+package Add;
+option go_package = "/pb";
+message StringRequest{
+  string A = 1;
+  string B = 2;
+}
+message StringResponse{
+  string Msg = 1;
+}
+service StringServices{
+  rpc Concat(StringRequest)returns(StringResponse);
+  rpc Diff(StringRequest)returns(StringResponse);
+}

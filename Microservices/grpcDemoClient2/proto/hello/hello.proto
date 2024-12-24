@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+//声明生成的包路径
+option go_package = "/pb";
+
+package proto; //包名
+
+//定义一个服务
+service welcome {
+  //普通rpc调用
+  rpc SayHello(HelloRequest)returns(HelloResponse);
+  //名称解析与均衡负载方法
+  rpc SayHelloA(HelloRequest) returns(HelloResponse);
+}
+
+//定义请求类型
+message HelloRequest{
+  string name = 1;
+}
+
+//定义返回类型
+message HelloResponse{
+  string reply = 1;
+}

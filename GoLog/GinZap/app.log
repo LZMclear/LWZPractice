@@ -1,0 +1,4 @@
+{"level":"DEBUG","time":"2024-08-15T17:13:00.125+0800","caller":"GinZap/main.go:54","msg":"this is hello func","user":"lsl","age":18}
+{"level":"INFO","time":"2024-08-15T17:13:00.142+0800","caller":"GinZap/ZapMiddleware.go:28","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","IP":"::1","user-agent":"PostmanRuntime/7.28.0","err":"","cost":0.0173135}
+2024-08-15T17:13:52.259+0800	DEBUG	GinZap/main.go:54	this is hello func	{"user": "lsl", "age": 18}
+2024-08-15T17:13:52.277+0800	INFO	GinZap/ZapMiddleware.go:28	/hello	{"status": 200, "method": "GET", "path": "/hello", "query": "", "IP": "::1", "user-agent": "PostmanRuntime/7.28.0", "err": "", "cost": 0.0182485}

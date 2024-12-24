@@ -1,0 +1,33 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "/pb";
+
+service Trim {
+  rpc TrimSpace (TrimRequest) returns (TrimResponse) {}
+}
+
+service AddService{
+  rpc Sum(StrRequest)returns(StrResponse);
+  rpc Concat(StrRequest)returns(StrResponse);
+}
+
+// Trim方法的请求参数
+message TrimRequest {
+  string s = 1;
+}
+
+// Trim方法的响应
+message TrimResponse {
+  string s = 1;
+}
+
+//Sum和Concat的请求和响应
+message StrRequest{
+  string a=1;
+  string b=2;
+}
+
+message StrResponse{
+  string r=1;
+}

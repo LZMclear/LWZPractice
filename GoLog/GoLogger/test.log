@@ -1,0 +1,4 @@
+2024/08/14 16:35:50 Erro fetching url www.google.com: Get "www.google.com": unsupported protocol scheme ""
+2024/08/14 16:36:11 Erro fetching url http://www.google.com: Get "http://www.google.com": dial tcp 199.59.148.20:80: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2024/08/14 16:39:00 Erro fetching url www.baidu.com: Get "www.baidu.com": unsupported protocol scheme ""
+2024/08/14 16:39:00 Status Code for http://www.baidu.com : 200 OK

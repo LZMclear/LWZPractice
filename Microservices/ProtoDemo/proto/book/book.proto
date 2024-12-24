@@ -1,0 +1,60 @@
+syntax = 'proto3';
+
+//声明protobuf中的包名
+package book;
+
+//声明生成的Go代码的包路径
+option go_package='/pb';
+
+//引入同目录下的protobuf文件（起始位置为proto_path的下层）
+import "book/price.proto";
+// 引入google/api/annotations.proto文件
+import "google/api/annotations.proto";
+
+message Book{
+  string title = 1;
+  Price price = 2;
+  string author = 3;
+  //数组类型
+  repeated string tables = 4;
+  //map类型
+  map<string,Information> infos = 5;
+  BookTable book_table = 6;
+}
+
+//枚举类型
+enum BookTable{
+  BOOK_TABLE_UNSPECIFIED = 0;
+  BOOK_TABLE_STORY = 1;
+  BOOK_TABLE_LITERATURE = 2;
+}
+
+
+message Information{
+  string introduction = 1;
+  string publication = 2;
+  bool is_public = 3;
+  BookTable book_table = 4;
+}
+
+//创建Book服务
+//不添加option提供单纯的rpc服务，添加option提供rpc和http服务
+service BookService{
+  //创建书籍
+  rpc Create(Book) returns (Book){
+    option (google.api.http)={
+      post:"/v1/books"
+      body:"*"
+    };
+  };
+  //获取书籍
+  rpc Get(GetBookRequest) returns (GetBookRequest){
+    option (google.api.http) = {
+      get:"/v1/books/{id}"
+    };
+  };
+}
+
+message GetBookRequest{
+  int32 id = 1;
+}

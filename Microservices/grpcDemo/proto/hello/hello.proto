@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+//声明生成的包路径
+option go_package = "/pb";
+
+package proto;  //包名
+
+//定义一个服务
+service Greeter{
+  //普通RPC调用
+  rpc SayHello(HelloRequest)returns(HelloResponse);
+  //双向流RPC调用metadata操作
+  rpc BindHelloWithMetadata(stream HelloRequest) returns(stream HelloResponse);
+  //服务端流式服务
+  rpc LotsOfReplies(HelloRequest) returns(stream HelloResponse);
+  //客户端流式服务
+  rpc LotsOfGreetings(stream HelloRequest) returns(HelloResponse);
+  //双向流式数据
+  rpc BindHello(stream HelloRequest) returns(stream HelloResponse);
+}
+
+
+//请求消息
+message HelloRequest{
+  string name = 1;
+}
+
+//响应消息
+message  HelloResponse{
+  string reply = 1;
+}
